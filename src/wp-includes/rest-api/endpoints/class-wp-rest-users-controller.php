@@ -316,7 +316,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 		}
 
 		if ( isset( $registered['who'] ) && ! empty( $request['who'] ) && 'authors' === $request['who'] ) {
-			$prepared_args['who'] = 'authors';
+			$prepared_args['capability'] = 'publish_posts';
 		} elseif ( ! current_user_can( 'list_users' ) ) {
 			$prepared_args['has_published_posts'] = get_post_types( array( 'show_in_rest' => true ), 'names' );
 		}
